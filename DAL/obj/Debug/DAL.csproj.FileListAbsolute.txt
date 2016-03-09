@@ -1,0 +1,10 @@
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\bin\Debug\DAL.dll.config
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\bin\Debug\DAL.dll
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\bin\Debug\DAL.pdb
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\bin\Debug\EntityFramework.dll
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\bin\Debug\EntityFramework.xml
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\obj\Debug\DAL.dll
+C:\Users\nourelhajj1996\documents\visual studio 2015\Projects\EnronSearchEngine\DAL\obj\Debug\DAL.pdb

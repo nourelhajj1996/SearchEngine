@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SearchEngineDBModelStoreContainer" CdmEntityContainer="SearchEngineDBEntities">
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="SearchEngineDBModel.Documents">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="indexTime" ColumnName="indexTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terms">
+      <EntityTypeMapping TypeName="SearchEngineDBModel.Terms">
+        <MappingFragment StoreEntitySet="Terms">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contains">
+      <EntityTypeMapping TypeName="SearchEngineDBModel.Contains">
+        <MappingFragment StoreEntitySet="Contains">
+          <ScalarProperty Name="termId" ColumnName="termId" />
+          <ScalarProperty Name="documentId" ColumnName="documentId" />
+          <ScalarProperty Name="positionIndex" ColumnName="positionIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SearchEngineDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="path" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="indexTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Contains" Relationship="Self.FK__Contains__docume__145C0A3F" FromRole="Documents" ToRole="Contains" />
+  </EntityType>
+  <EntityType Name="Terms">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="value" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Contains" Relationship="Self.FK__Contains__termId__1367E606" FromRole="Terms" ToRole="Contains" />
+  </EntityType>
+  <EntityType Name="Contains">
+    <Key>
+      <PropertyRef Name="termId" />
+      <PropertyRef Name="documentId" />
+      <PropertyRef Name="positionIndex" />
+    </Key>
+    <Property Name="termId" Type="Int32" Nullable="false" />
+    <Property Name="documentId" Type="Int32" Nullable="false" />
+    <Property Name="positionIndex" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK__Contains__docume__145C0A3F" FromRole="Contains" ToRole="Documents" />
+    <NavigationProperty Name="Terms" Relationship="Self.FK__Contains__termId__1367E606" FromRole="Contains" ToRole="Terms" />
+  </EntityType>
+  <Association Name="FK__Contains__docume__145C0A3F">
+    <End Role="Documents" Type="Self.Documents" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Contains" Type="Self.Contains" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Contains">
+        <PropertyRef Name="documentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contains__termId__1367E606">
+    <End Role="Terms" Type="Self.Terms" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Contains" Type="Self.Contains" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terms">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Contains">
+        <PropertyRef Name="termId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SearchEngineDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Documents" EntityType="Self.Documents" />
+    <EntitySet Name="Terms" EntityType="Self.Terms" />
+    <EntitySet Name="Contains" EntityType="Self.Contains" />
+    <AssociationSet Name="FK__Contains__docume__145C0A3F" Association="Self.FK__Contains__docume__145C0A3F">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="Contains" EntitySet="Contains" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contains__termId__1367E606" Association="Self.FK__Contains__termId__1367E606">
+      <End Role="Terms" EntitySet="Terms" />
+      <End Role="Contains" EntitySet="Contains" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
