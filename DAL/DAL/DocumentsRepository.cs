@@ -4,41 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.DAL
+namespace SearchEngine.DAL
 {
     public class DocumentsRepository : ICRUD<Documents, int>
     {
-        public bool Create(Documents item)
+        public void Create(Documents item)
         {
-            throw new NotImplementedException();
+            using (SearchEngineDBEntities db = new SearchEngineDBEntities())
+            {
+                db.Documents.Add(item);
+                db.SaveChanges();
+            }
         }
 
-        public bool CreateAll(List<Documents> item_list)
+        public void CreateAll(List<Documents> item_list)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
+            using (SearchEngineDBEntities db = new SearchEngineDBEntities())
+            {
+                db.Documents.AddRange(item_list);
+                db.SaveChanges();
+            }
         }
 
         public Documents Read(int id)
         {
-            throw new NotImplementedException();
+            using (SearchEngineDBEntities db = new SearchEngineDBEntities())
+            {
+                return db.Documents.SingleOrDefault(doc => doc.id == id);
+            }
         }
 
         public List<Documents> ReadAll()
         {
-            throw new NotImplementedException();
+            using (SearchEngineDBEntities db = new SearchEngineDBEntities())
+            {
+                return db.Documents.ToList();
+            }
         }
 
         public List<Documents> Search(string search)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Documents item)
         {
             throw new NotImplementedException();
         }

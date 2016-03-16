@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace SearchEngine
 {
     using System;
     using System.Collections.Generic;

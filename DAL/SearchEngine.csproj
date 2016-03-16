@@ -41,8 +41,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,6 +82,12 @@
     <Compile Include="Terms.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UI\FileIndexer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FileIndexer.Designer.cs">
+      <DependentUpon>FileIndexer.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DatabaseModel.edmx">
@@ -111,7 +119,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BLL\" />
-    <Folder Include="UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\FileIndexer.resx">
+      <DependentUpon>FileIndexer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
